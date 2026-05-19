@@ -1,22 +1,42 @@
-{
-    "layer": "bottom",
-    "height": 1,
-        "mod": "dock",
-    "exclusive": false,
-    "passthrough": false,
-    "gtk-layer-shell": true,
-    "reload_style_on_change": true,
-    "modules-left": ["sway/workspaces", "sway/mode"],
-    "modules-center": ["sway/window"],
-    "modules-right": ["battery", "clock","tray"],
-    "sway/window": {
-        "max-length": 50
-    },
+[
+  {
     "battery": {
-        "format": "{capacity}% {icon}",
-        "format-icons": ["", "", "", "", ""]
+      "format": "󰁹 {capacity}% ",
+      "format-charging": "󰂄 {capacity}%",
+      "states": {
+        "critical": 15,
+        "warning": 30
+      }
     },
     "clock": {
-        "format-alt": "{:%a, %d. %b  %H:%M}"
-    } 
-}
+      "format": "{:%b %d %Y    %I:%M:%S %p}",
+      "tooltip": false
+    },
+    "height": 34,
+    "layer": "bottom",
+    "margin-top": 0,
+    "modules-center": [
+      "clock"
+    ],
+    "modules-left": [
+      "hyprland/workspaces"
+    ],
+    "modules-right": [
+      "cpu",
+      "memory",
+      "network",
+      "battery",
+      "tray"
+    ],
+    "network": {
+      "format-disconnected": "󰤭 Offline ",
+      "format-ethernet": "󰈀Connected ",
+      "format-wifi": "󰤨 {signalStrength}% "
+    },
+    "position": "top",
+    "spacing": 0,
+    "tray": {
+      "spacing": 8
+    }
+  }
+]
