@@ -1,4 +1,389 @@
-      * {
+* {
+  border: none;
+  border-radius: 0;
+  font-family: "Pixel Code";
+  font-size: 12px;
+  min-height: 0;
+}
+
+window#waybar {
+  background: transparent;
+  color: #ffffff;
+}
+
+/* =========================
+   Workspaces
+   ========================= */
+
+#workspaces {
+  margin: 0;
+  padding: 0;
+}
+
+#workspaces button {
+  padding: 2px 10px;
+  margin-right: 0px;
+  margin-top: 4px;
+  margin-bottom: 4px;
+
+  color: #ffb3e6;
+
+  border-top: none;
+  border-bottom: none;
+
+  background-image:
+    /* top edge */
+    linear-gradient(
+      to right,
+      transparent 0px,
+      transparent 10px,
+      #ffffff 10px,
+      #ffffff calc(100% - 12px),
+      transparent calc(100% - 12px),
+      transparent 100%
+    ),
+
+    /* bottom edge */
+    linear-gradient(
+      to right,
+      transparent 0px,
+      transparent 10px,
+      #ffffff 10px,
+      #ffffff calc(100% - 12px),
+      transparent calc(100% - 12px),
+      transparent 100%
+    ),
+
+    /* body */
+    linear-gradient(
+      -72deg,
+      transparent 0px,
+      transparent 10px,
+      #ffffff 10px,
+      #ffffff 11px,
+      #28121a 11px,
+      #28121a calc(100% - 12px),
+      #ffffff calc(100% - 12px),
+      #ffffff calc(100% - 11px),
+      #28121a calc(100% - 11px),
+      #28121a 100%
+    );
+
+  background-size:
+    100% 1px,
+    100% 1px,
+    100% 100%;
+
+  background-position:
+    top left,
+    bottom left,
+    top left;
+
+  background-repeat:
+    no-repeat,
+    no-repeat,
+    no-repeat;
+}
+
+/* Middle workspaces */
+
+#workspaces button:not(:last-child):not(:only-child) {
+  border-top: 1px solid #ffffff;
+  border-bottom: 1px solid #ffffff;
+
+  background-image:
+    linear-gradient(
+      -72deg,
+
+      /* full dark body */
+      #28121a 0px,
+      #28121a calc(100% - 34px),
+
+      /* fake white slant */
+      #ffffff calc(100% - 34px),
+      #ffffff calc(100% - 33px),
+
+      /* dark again */
+      #28121a calc(100% - 33px),
+      #28121a 100%
+    );
+
+  background-size: 100% 100%;
+  background-position: top left;
+  background-repeat: no-repeat;
+}
+
+/* Last workspace */
+
+#workspaces button:last-child {
+  background-image:
+    /* top edge */
+    linear-gradient(
+      to right,
+      #ffffff 0px,
+      #ffffff calc(100% - 3px),
+      transparent calc(100% - 3px),
+      transparent 100%
+    ),
+
+    /* bottom edge */
+    linear-gradient(
+      to right,
+      #ffffff 0px,
+      #ffffff calc(100% - 11px),
+      transparent calc(100% - 11px),
+      transparent 100%
+    ),
+
+    /* body */
+    linear-gradient(
+      -72deg,
+      transparent 0px,
+      transparent 10px,
+      #ffffff 10px,
+      #ffffff 11px,
+      #28121a 11px,
+      #28121a calc(100% - 11px),
+      #28121a calc(100% - 10px),
+      #28121a 100%
+    );
+
+  background-size:
+    100% 1px,
+    100% 1px,
+    100% 100%;
+
+  background-position:
+    top left,
+    bottom left,
+    top left;
+
+  background-repeat:
+    no-repeat,
+    no-repeat,
+    no-repeat;
+}
+
+/* Active workspace */
+
+#workspaces button.active {
+  color: #ffffff;
+}
+
+/* =========================
+   General modules
+   ========================= */
+
+#cpu,
+#memory,
+#network,
+#battery,
+#custom-battery,
+#tray,
+#clock {
+  padding: 2px 22px;
+
+  color: #ffffff;
+
+  border-top: none;
+  border-bottom: none;
+
+  background-image:
+    /* top edge */
+    linear-gradient(
+      to right,
+      transparent 0px,
+      transparent 5px,
+      #ffffff 5px,
+      #ffffff calc(100% - 5px),
+      transparent calc(100% - 5px),
+      transparent 100%
+    ),
+
+    /* bottom edge */
+    linear-gradient(
+      to right,
+      transparent 0px,
+      transparent 14px,
+      #ffffff 14px,
+      #ffffff calc(100% - 14px),
+      transparent calc(100% - 14px),
+      transparent 100%
+    ),
+
+    /* left half */
+    linear-gradient(
+      72deg,
+      transparent 0px,
+      transparent 12px,
+      #ffffff 12px,
+      #ffffff 14px,
+      #000000 14px,
+      #000000 100%
+    ),
+
+    /* right half */
+    linear-gradient(
+      -72deg,
+      transparent 0px,
+      transparent 12px,
+      #ffffff 12px,
+      #ffffff 14px,
+      #000000 14px,
+      #000000 100%
+    );
+
+  background-size:
+    100% 1px,
+    100% 1px,
+    50% 100%,
+    50% 100%;
+
+  background-position:
+    top left,
+    bottom left,
+    top left,
+    top right;
+
+  background-repeat:
+    no-repeat,
+    no-repeat,
+    no-repeat,
+    no-repeat;
+
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+
+/* =========================
+   CPU
+   ========================= */
+
+#cpu {
+  padding: 4px 20px 4px 18px;
+
+  /* Keep CPU wide enough so the slanted
+     gradient stops don't overlap. */
+  min-width: 56px;
+
+  border-top: none;
+  border-bottom: none;
+
+  background-image:
+    /* top edge */
+    linear-gradient(
+      to right,
+      transparent 0px,
+      transparent 2px,
+      #ffffff 2px,
+      #ffffff 100%
+    ),
+
+    /* bottom edge */
+    linear-gradient(
+      to right,
+      transparent 0px,
+      transparent 10px,
+      #ffffff 10px,
+      #ffffff 100%
+    ),
+
+    /* body */
+    linear-gradient(
+      72deg,
+      transparent 0px,
+      transparent 10px,
+      #ffffff 10px,
+      #ffffff 11px,
+      #28121a 11px,
+      #28121a calc(100% - 18px),
+      #ffffff calc(100% - 18px),
+      #ffffff calc(100% - 17px),
+      #28121a calc(100% - 17px),
+      #28121a 100%
+    );
+
+  background-size:
+    100% 1px,
+    100% 1px,
+    100% 100%;
+
+  background-position:
+    top left,
+    bottom left,
+    top left;
+
+  background-repeat:
+    no-repeat,
+    no-repeat,
+    no-repeat;
+}
+
+/* =========================
+   Right-side module borders
+   ========================= */
+
+#memory,
+#network,
+#battery,
+#custom-battery,
+#tray {
+  border-top: 1px solid #ffffff;
+  border-bottom: 1px solid #ffffff;
+}
+
+/* Memory / Network / Battery */
+
+#memory,
+#network,
+#battery,
+#custom-battery {
+  background:
+    linear-gradient(
+      72deg,
+      #28121a 0px,
+      #28121a calc(100% - 12px),
+      #ffffff calc(100% - 12px),
+      #ffffff calc(100% - 11px),
+      #28121a calc(100% - 11px),
+      #28121a 100%
+    );
+}
+
+/* Tray */
+
+#tray {
+  background: #28121a;
+}
+
+/* =========================
+   Battery states
+   ========================= */
+
+#battery.warning {
+  color: #ffd166;
+}
+
+#battery.critical {
+  color: #ff5c8a;
+}
+
+/* =========================
+   Normalize module boxes
+   ========================= */
+
+#clock,
+#cpu,
+#memory,
+#network,
+#battery,
+#custom-battery,
+#tray,
+#workspaces button {
+  min-height: 24px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}      * {
         border: none;
         border-radius: 0;
         font-family: "Pixel Code";
