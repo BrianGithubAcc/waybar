@@ -1,42 +1,43 @@
-[
-  {
-    "battery": {
-      "format": "󰁹 {capacity}% ",
-      "format-charging": "󰂄 {capacity}%",
-      "states": {
-        "critical": 15,
-        "warning": 30
-      }
-    },
-    "clock": {
-      "format": "{:%b %d %Y    %I:%M:%S %p}",
-      "tooltip": false
-    },
-    "height": 34,
-    "layer": "bottom",
-    "margin-top": 0,
-    "modules-center": [
-      "clock"
-    ],
-    "modules-left": [
-      "hyprland/workspaces"
-    ],
-    "modules-right": [
-      "cpu",
-      "memory",
-      "network",
-      "battery",
-      "tray"
-    ],
-    "network": {
-      "format-disconnected": "󰤭 Offline ",
-      "format-ethernet": "󰈀Connected ",
-      "format-wifi": "󰤨 {signalStrength}% "
-    },
-    "position": "top",
-    "spacing": 0,
-    "tray": {
-      "spacing": 8
-    }
+{
+  "layer": "bottom",
+  "position": "top",
+  "height": 34,
+  "spacing": 0,
+  "margin-top": 0,
+
+  "modules-left": [
+    "hyprland/workspaces"
+  ],
+
+  "modules-center": [
+    "clock"
+  ],
+
+  "modules-right": [
+    "cpu",
+    "memory",
+    "network",
+    "custom/battery",
+    "tray"
+  ],
+
+  "clock": {
+    "format": "{:%b %d %Y    %I:%M:%S %p}",
+    "tooltip": false
+  },
+
+  "network": {
+    "format-wifi": "󰤨 {signalStrength}% ",
+    "format-ethernet": "󰈀Connected ",
+    "format-disconnected": "󰤭 Offline "
+  },
+
+  "custom/battery": {
+    "exec": "/home/brian/.config/waybar/scripts/battery_combined.sh",
+    "interval": 5
+  },
+
+  "tray": {
+    "spacing": 8
   }
-]
+}
